@@ -1,0 +1,61 @@
+{
+  "model": "TF-IDF + Logistic Regression",
+  "best_config": "4. Bigrams + Stopword removal",
+  "best_config_details": {
+    "lowercase": true,
+    "stop_words": "english",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "max_features": 20000,
+    "sublinear_tf": true,
+    "classifier": "LogisticRegression(C=1.0, solver=liblinear)"
+  },
+  "subset_sizes": {
+    "train": 5000,
+    "val": 1000,
+    "test": 2000
+  },
+  "random_seed": 42,
+  "ablation_results": [
+    {
+      "Configuration": "1. Baseline (unigram, lowercase)",
+      "Val Accuracy": 0.857,
+      "Val Macro-F1": 0.8569678177589958,
+      "Time (s)": 5.932892560958862
+    },
+    {
+      "Configuration": "2. + Stopword removal",
+      "Val Accuracy": 0.856,
+      "Val Macro-F1": 0.8558523928502787,
+      "Time (s)": 3.174048900604248
+    },
+    {
+      "Configuration": "3. + Bigrams (uni+bi)",
+      "Val Accuracy": 0.864,
+      "Val Macro-F1": 0.8639733387743997,
+      "Time (s)": 12.13998031616211
+    },
+    {
+      "Configuration": "4. Bigrams + Stopword removal",
+      "Val Accuracy": 0.869,
+      "Val Macro-F1": 0.8689180737961226,
+      "Time (s)": 9.597933530807495
+    }
+  ],
+  "test_metrics": {
+    "accuracy": 0.8675,
+    "macro_f1": 0.8674792936396312,
+    "confusion_matrix": [
+      [
+        880,
+        160
+      ],
+      [
+        105,
+        855
+      ]
+    ]
+  }
+}
