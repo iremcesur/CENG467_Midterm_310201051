@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-specific
+data/raw/
+data/processed/
+*.bin
+*.pt
+*.ckpt
+*.h5
+*.pkl
+results/checkpoints/
+
+# Colab
+.config/
+sample_data/
