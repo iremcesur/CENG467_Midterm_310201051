@@ -230,3 +230,7 @@ results/checkpoints/
 # Colab
 .config/
 sample_data/
+
+# GloVe embeddings (downloaded separately)
+glove.6B.100d.txt
+glove.6B.zip
