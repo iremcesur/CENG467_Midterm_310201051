@@ -1,0 +1,69 @@
+{
+  "task": "summarization",
+  "dataset": "cnn_dailymail v3.0.0",
+  "subset_size": 100,
+  "random_seed": 42,
+  "models": {
+    "textrank": {
+      "description": "3-sentence extractive via TF-IDF + PageRank",
+      "mean_summary_length_chars": 452.18,
+      "rouge1": 0.3556631143628881,
+      "rouge2": 0.14632113318287931,
+      "rougeL": 0.23276859968188307,
+      "bleu": 0.09541603709617448,
+      "meteor": 0.33383756640066636,
+      "bertscore_f1": 0.21575942141003907
+    },
+    "distilbart": {
+      "description": "sshleifer/distilbart-cnn-12-6, beam search (4 beams)",
+      "parameters": 408451072,
+      "decoding": {
+        "num_beams": 4,
+        "max_length": 130,
+        "min_length": 30,
+        "length_penalty": 2.0,
+        "no_repeat_ngram_size": 3
+      },
+      "mean_summary_length_chars": 379.97,
+      "rouge1": 0.433178282774881,
+      "rouge2": 0.2129458514968984,
+      "rougeL": 0.30675234938194196,
+      "bleu": 0.16951759245946113,
+      "meteor": 0.41668349718746106,
+      "bertscore_f1": 0.3307569868117571
+    }
+  },
+  "mean_reference_length_chars": 294.69,
+  "qualitative_examples": [
+    {
+      "category": "BART > TextRank (abstraction wins)",
+      "index": 8,
+      "article_excerpt": "Apple offers a range of ways to unlock its devices from PINs to passwords and fingerprints. But you could soon use a selfie to gain access to your apps and messages thanks to Apple's latest patent. The filing details a system of scanning a user's face with the front-facing camera when the handset is moved into a certain position, and automatically unlocking the device if the image matches one on file. The patent (illustrated) was filed by the California-based firm in March 2011 and awarded earlier this week. It details a method of scanning a user's face using the front-facing camera each time ",
+      "reference": "The patent was filed in March 2011 and awarded to Apple earlier this week .\nIt details a method of scanning a user's face using the front-facing camera .\nIf the scanned face matches with a photo that was previously taken and stored, the phone unlocks automatically .\nAndroid Lollipop already has a similar feature called 'Trusted face'",
+      "textrank": "Once the screen is enabled and the camera is held in front of the face, the screen automatically unlocks. Once the screen is enabled and the camera is held in front of the face, the screen automatically unlocks. Once the screen is enabled and the camera is held in front of the face, the screen automatically unlocks.",
+      "bart": " The patent was filed by the California-based firm in March 2011 and awarded earlier this week . It details a method of scanning a user's face using the front-facing camera each time the phone is moved into a certain position . If the scanned face matches a previously taken photo, the phone unlocks automatically . Android Lollipop users already have an almost identical feature known as 'Trusted face' in the Smart Lock menu . This relies on the user pressing the power button to enable the screen .",
+      "textrank_rougeL": 0.21052631578947367,
+      "bart_rougeL": 0.6293706293706294
+    },
+    {
+      "category": "TextRank \u2265 BART (extractive sufficient)",
+      "index": 47,
+      "article_excerpt": "At least one is dead after a powerful storm capsized several sailboats participating in a regatta, and crews searched late on Saturday for at least four people missing in the waters, the Coast Guard said. The storm rolled through the area about 4 p.m. and a man was plucked from the waters by the Coast Guard around 9 p.m., Petty officer Carlos Vega said. He said crews would search through the night. 'We knew we were totally lost at sea,' said regatta participant Rhonda Morgan Gilreath, right, shown with her boyfriend Randy Rutledge of Rome Georgia on Saturday . Dauphin Island Regatta sailors ga",
+      "reference": "A powerful storm capsized several sailboats participating in a regatta, and crews searched for at least four people missing in the waters .\nDauphin Island Mayor Jeff Collier said that at least one person was confirmed dead, but he did not know the cause .\n'It's been a very tragic day,' Michael Smith, with the Buccaneer yacht club .\nThe identities of those who are dead and missing have not yet been revealed .",
+      "textrank": "At least one is dead after a powerful storm capsized several sailboats participating in a regatta, and crews searched late on Saturday for at least four people missing in the waters, the Coast Guard said. It was a wide area,' said\u00a0Dauphin Island Mayor Jeff Collier . It was a wide area,' said Dauphin Island Mayor Jeff Collier.",
+      "bart": " More than 100 sailboats and as many as 200 people were participating in the Dauphin Island regatta in Mobile Bay on Saturday . The storm rolled through the area about 4 p.m. and a man was plucked from the waters by the Coast Guard around 9pm . Crews searched late on Saturday for at least four people missing in the waters . 'We knew we were totally lost at sea,' said regatta participant Rhonda Morgan Gilreath, right, shown with her boyfriend Randy Rutledge of Rome Georgia .",
+      "textrank_rougeL": 0.453125,
+      "bart_rougeL": 0.24516129032258066
+    },
+    {
+      "category": "Both struggle (genuinely hard article)",
+      "index": 64,
+      "article_excerpt": "Documented and undocumented immigrant population in the United States could reach a record high of 51million in just eight years, according to U.S. Census figures. And by 2060, immigrants could account for 82 per cent of all population growth in the country. One in seven U.S. residents will be an immigrant by 2023, the report from the Center for Immigration Studies\u00a0(CIS) said. Documented and undocumented immigrants in the United States could reach a record high in the United States by 2023, when their share of the population could hit 14.8 per cent . That number could rise to one in five by 20",
+      "reference": "Documented and undocumented immigrant population in the United States could reach a record high of 51million in just eight years .\nPresident Barack Obama is trying to use executive powers to expand immigration policies in the United States .\nChanges could\u00a0exempt 5million undocumented immigrants from deportation .\nRepublican presidential candidates have to figure out what their stance is on the subject as potential new policies could be established .",
+      "textrank": "Immigration population will grow almost four times faster than native-born population and will reach 15.8 per cent of the nation's population by 2030, 17.1 per cent by 2040 and 18.8 per cent by 2060 . Immigrants and their descendants will account for 75.5 per cent of the nation's population growth between 2010 and 2050 and 82 per cent of growth between 2010 and 2060. By 2060, immigrants and their descendants will account for 82 per cent of the nation's population growth since 2010 .",
+      "bart": " One in seven U.S. residents will be an immigrant by 2023, the report from the Center for Immigration Studies said . That number could rise to one in five by 2060, when immigrant population reaches 78 million . Immigration population will grow almost four times faster than native-born population . Net immigration will steadily increase over the next 45 years, totaling at 64million .",
+      "textrank_rougeL": 0.11538461538461538,
+      "bart_rougeL": 0.109375
+    }
+  ]
+}
