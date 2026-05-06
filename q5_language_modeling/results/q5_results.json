@@ -1,0 +1,107 @@
+{
+  "task": "language_modeling",
+  "dataset": "wikitext-2-raw-v1",
+  "random_seed": 42,
+  "vocabulary": {
+    "size": 30000,
+    "limit": 30000,
+    "training_coverage_pct": 96.84
+  },
+  "token_counts": {
+    "train": 2007146,
+    "val": 209338,
+    "test": 235854
+  },
+  "ngram_baseline": {
+    "model": "bigram",
+    "smoothing": "add-k (k=0.01)",
+    "val_ppl": 560.9718464085852,
+    "test_ppl": 520.6650633285849
+  },
+  "lstm_lm": {
+    "architecture": "2-layer LSTM with weight tying",
+    "embed_dim": 300,
+    "hidden_dim": 300,
+    "num_layers": 2,
+    "dropout": 0.5,
+    "seq_len": 35,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "num_epochs": 5,
+    "gradient_clip": 0.25,
+    "total_params": 10474800,
+    "training_time_seconds": 305.75087809562683,
+    "best_val_ppl": 195.4164300324756,
+    "test_ppl": 182.55334482024818,
+    "history": {
+      "train_loss": [
+        6.821015191397497,
+        6.158856420644692,
+        5.8616894254727026,
+        5.670329173760755,
+        5.531449578170266
+      ],
+      "val_loss": [
+        6.068207525437878,
+        5.694441451821276,
+        5.496176668392715,
+        5.365000145409697,
+        5.275132820170413
+      ],
+      "val_ppl": [
+        431.9058071380609,
+        297.2107406982418,
+        243.75818002522627,
+        213.79126576826098,
+        195.4164300324756
+      ]
+    }
+  },
+  "generation_samples": [
+    {
+      "setting": "Greedy-ish (T=0.7, top-k=10)",
+      "prompt": "the company was",
+      "output": "the company was also able to be used to be a new name . The ship was located in the United States , and the <unk> of the Missouri River . The route"
+    },
+    {
+      "setting": "Greedy-ish (T=0.7, top-k=10)",
+      "prompt": "in the early years",
+      "output": "in the early years , he moved to a <unk> to the <unk> of the Church of the <unk> . The film 's first @-@ year version of the <unk> <unk> 's <unk> and"
+    },
+    {
+      "setting": "Greedy-ish (T=0.7, top-k=10)",
+      "prompt": "the war had",
+      "output": "the war had been the <unk> of the <unk> , but the <unk> 's <unk> , a \" <unk> \" . The film was the first single of the series , and <unk>"
+    },
+    {
+      "setting": "Balanced  (T=1.0, top-k=40)",
+      "prompt": "the company was",
+      "output": "the company was not recorded by the second season in 2005 for February 23 , 2000 . \" <unk> in the English \" was <unk> \" <unk> in the book \" , \""
+    },
+    {
+      "setting": "Balanced  (T=1.0, top-k=40)",
+      "prompt": "in the early years",
+      "output": "in the early years with September , a small tropical cyclone on the Pacific . The Jin moved inland in France and completed in August , but they arrived in an major position in"
+    },
+    {
+      "setting": "Balanced  (T=1.0, top-k=40)",
+      "prompt": "the war had",
+      "output": "the war had been found as a small area on their <unk> . He also returned a new army in England . A two @-@ man building was in the time of his"
+    },
+    {
+      "setting": "Diverse   (T=1.2, no top-k)",
+      "prompt": "the company was",
+      "output": "the company was finished by moving endemic 1995 . It and the track defeated the people at the success of television minutes and takes success for eight weeks during September 2016 venues aboard"
+    },
+    {
+      "setting": "Diverse   (T=1.2, no top-k)",
+      "prompt": "in the early years",
+      "output": "in the early years , up with some colonial points as conduct tunes and longer produce rivals allowing BBDO to strong aviation tend of reducing clock game forces opportunities . At 25 January 2015"
+    },
+    {
+      "setting": "Diverse   (T=1.2, no top-k)",
+      "prompt": "the war had",
+      "output": "the war had been handled as ! Netherlandish media and Hutton stagnant flight eliminate an cottage for offering school forces partially @-@ worth theater . An social standing reports beginning hugely assembling access"
+    }
+  ]
+}

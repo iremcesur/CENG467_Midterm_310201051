@@ -1,0 +1,39 @@
+LSTM Language Model — Generation Samples
+============================================================
+
+
+--- Greedy-ish (T=0.7, top-k=10) ---
+
+Prompt: the company was
+Output: the company was also able to be used to be a new name . The ship was located in the United States , and the <unk> of the Missouri River . The route
+
+Prompt: in the early years
+Output: in the early years , he moved to a <unk> to the <unk> of the Church of the <unk> . The film 's first @-@ year version of the <unk> <unk> 's <unk> and
+
+Prompt: the war had
+Output: the war had been the <unk> of the <unk> , but the <unk> 's <unk> , a " <unk> " . The film was the first single of the series , and <unk>
+
+
+--- Balanced  (T=1.0, top-k=40) ---
+
+Prompt: the company was
+Output: the company was not recorded by the second season in 2005 for February 23 , 2000 . " <unk> in the English " was <unk> " <unk> in the book " , "
+
+Prompt: in the early years
+Output: in the early years with September , a small tropical cyclone on the Pacific . The Jin moved inland in France and completed in August , but they arrived in an major position in
+
+Prompt: the war had
+Output: the war had been found as a small area on their <unk> . He also returned a new army in England . A two @-@ man building was in the time of his
+
+
+--- Diverse   (T=1.2, no top-k) ---
+
+Prompt: the company was
+Output: the company was finished by moving endemic 1995 . It and the track defeated the people at the success of television minutes and takes success for eight weeks during September 2016 venues aboard
+
+Prompt: in the early years
+Output: in the early years , up with some colonial points as conduct tunes and longer produce rivals allowing BBDO to strong aviation tend of reducing clock game forces opportunities . At 25 January 2015
+
+Prompt: the war had
+Output: the war had been handled as ! Netherlandish media and Hutton stagnant flight eliminate an cottage for offering school forces partially @-@ worth theater . An social standing reports beginning hugely assembling access
+
