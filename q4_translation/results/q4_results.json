@@ -1,0 +1,26 @@
+{
+  "seq2seq": {
+    "metrics": {
+      "BLEU": 24.21,
+      "ChrF": 46.94,
+      "METEOR": 52.0,
+      "BERTScore": 49.88
+    },
+    "inference_time_total": 15.329978227615356,
+    "inference_time_per_sentence": 0.015329978227615356,
+    "val_ppl": 25.415619614195503,
+    "best_epoch": 9,
+    "n_params": 25298212
+  },
+  "marian": {
+    "metrics": {
+      "BLEU": 39.66,
+      "ChrF": 60.6,
+      "METEOR": 69.26,
+      "BERTScore": 80.89
+    },
+    "inference_time_total": 16.138413667678833,
+    "inference_time_per_sentence": 0.016138413667678833,
+    "n_params": 133905920
+  }
+}
